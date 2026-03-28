@@ -1,23 +1,42 @@
- {
+/* Global */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-
 body {
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #000;
   color: white;
+  width: 100vw;
+  height: 100vh;
 }
 
+.back {
+  position: absolute;
+  top: 50px;
+  left: 170px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  background-color: yellow;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
 .navbar {
   background-color: #1c1c1c;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  position: relative;
+  position: absolute;
+  top: 1px;
+  width: 100%;
 }
 
 .logo {
@@ -92,4 +111,129 @@ body {
   .film-container {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+
+/* Film.html */
+
+.pembungkus, aside, .deskripsi {
+    display: flex;
+}
+.pembungkus {
+    width: 80%;
+    gap: 30px;
+}
+ button {
+  height: 40px;
+}
+.deskripsi {
+    gap: 20px;
+    align-items: center;
+}
+aside {
+    gap: 10px;
+}
+aside, .deskripsi {
+    flex-direction: column; 
+}
+#rate, #harga {
+    padding: 17px;
+    text-align: center;
+}
+#rate {
+    color: rgb(236, 197, 1);
+}
+#judul { 
+    font-size: 15px;
+    padding: 30px;
+}
+#hari, #waktu {
+    overflow: hidden;
+    width: 100%;
+}
+#hari h3, #waktu h3 {
+    background: yellow;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    padding: 15px;
+}
+#hari button, #waktu button {
+    margin: 20px;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+}
+button.active {
+  background: rgb(236, 197, 1);
+  color: black;
+}
+#hari, #waktu, #judul, #rate, #harga, aside img {
+    background-color: #232224;
+    border-radius: 10px;
+}
+.confirm {
+  margin-top: 30px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  width: 500px;
+  background: yellow;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+/* seat.html */
+#isikursi button{
+  background-color: red;
+  border: none;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  width: 80px;
+  height: 80px;
+  font-weight: bold;
+  border-radius: 12px;
+}
+.nav-btn {
+  width: 60%;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.kembali {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  background-color: yellow;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+.booked {
+  width: 200px;
+  height: 50px;
+  border-radius: 50px;
+  color: white;
+  border: none;
+  background-color: yellow;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+.bungkusKursi {
+  width: 70%;
+  height: 70%;
+}
+.bungkusKursi h1 {
+  margin-left: 100px;
+}
+#isikursi {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
