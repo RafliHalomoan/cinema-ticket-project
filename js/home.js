@@ -42,3 +42,7 @@ function renderFilms(data) {
 renderFilms(films);
 searchInput.addEventListener("input", () => {
 });
+
+ historyBtn.addEventListener("click",function(){
+  window.location.href = "history.html"
+ });
