@@ -12,9 +12,13 @@ function renderFilms(data) {
     const card = document.createElement("div");
     card.classList.add("film-card");
 
+    const imgWrapper = document.createElement("div");
+    imgWrapper.classList.add("img-wrapper");
+
     const img = document.createElement("img");
     img.src = film.image;
-    img.alt = film.title;
+
+    imgWrapper.appendChild(img);
 
     const title = document.createElement("div");
     title.classList.add("film-title");
@@ -25,11 +29,13 @@ function renderFilms(data) {
     btn.textContent = "Continue";
 
     btn.addEventListener("click", () => {
-    localStorage.setItem("selectedFilm", film.id);
+    localStorage.setItem("booking", JSON.stringify({
+      id: film.id
+    }));
     window.location.href = "film.html";
     });
 
-    card.appendChild(img);
+    card.appendChild(imgWrapper);
     card.appendChild(title);
     card.appendChild(btn);
 
@@ -40,7 +46,15 @@ function renderFilms(data) {
 }
 
 renderFilms(films);
+
 searchInput.addEventListener("input", () => {
+  const keyword = searchInput.value.toLowerCase();
+
+  const filtered = films.filter(film => 
+    film.title.toLowerCase().includes(keyword)
+  );
+
+  renderFilms(filtered);
 });
 
  historyBtn.addEventListener("click",function(){

@@ -38,5 +38,6 @@ const films = [
     rating: 8.7,
     days: ["Tuesday", "Friday", "Saturday"],
     times: ["16:00", "19:30", "22:30"]
-  }
+  },
+  
 ];

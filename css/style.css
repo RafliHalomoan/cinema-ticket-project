@@ -1,68 +1,56 @@
-/* Global */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* BODY */
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #000;
-  color: white;
-  width: 100vw;
-  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
 }
 
-.back {
-  position: absolute;
-  top: 50px;
-  left: 170px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  color: white;
-  border: none;
-  background-color: yellow;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-}
 .navbar {
-  background-color: #1c1c1c;
+  background: linear-gradient(to right, #000, #1a1a1a);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
-  position: absolute;
-  top: 1px;
-  width: 100%;
+  padding: 20px 40px;
+  border-bottom: 1px solid #2a2a2a;
 }
 
 .logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  color: #d4af37;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
-/* BUTTON */
-.btn {
-  padding: 6px 15px;
-  background-color: #e0e0e0;
-  border: none;
+button {
   cursor: pointer;
-  border-radius: 4px;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  background: #1a1a1a;
+  color: #d4af37;
+  border: 1px solid #d4af37;
 }
 
 .btn:hover {
-  background-color: #ccc;
+  background: #d4af37;
+  color: black;
 }
 
 .search {
-  padding: 6px 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
   border: none;
-  outline: none;
-  border-radius: 4px;
+  background: #1a1a1a;
+  color: white;
 }
 
 .film-container {
@@ -70,170 +58,414 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 60px;
-  justify-items: center;
 }
 
 .film-card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
   text-align: center;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.film-card:hover {
+  transform: translateY(-10px);
+  border: 1px solid #d4af37;
+  box-shadow: 0 10px 30px rgba(212,175,55,0.2);
 }
 
 .film-card img {
-  width: 150px;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  background-color: #333;
-  border: 2px solid #444;
+  width: 100%;
+  height: auto;        
+  object-fit: contain;
 }
 
-/* TITLE */
 .film-title {
-  margin: 10px 0;
+  margin: 15px 0;
   font-weight: bold;
 }
 
-/* BUTTON FILM */
 .film-btn {
-  background-color: #222;
-  color: white;
-  border: none;
-  padding: 8px;
+  margin-bottom: 15px;
+  background: #d4af37;
+  color: black;
+  padding: 10px;
   width: 120px;
-  cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .film-btn:hover {
-  background-color: #444;
+  background: #f5d76e;
+}
+.img-wrapper {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  background: black;
+}
+
+/* FILM PAGE */
+.pembungkus {
+  display: flex;
+  gap: 40px;
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+aside img {
+  border-radius: 10px;
+  border: 2px solid #d4af37;
+}
+
+#rate {
+  color: #f5d76e;
+  text-align: center;
+}
+
+#harga {
+  text-align: center;
+}
+
+.deskripsi {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#judul {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#hari, #waktu {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#hari h3, #waktu h3 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+#hari button, #waktu button {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #2a2a2a;
+  color: white;
+}
+
+#hari button:hover, #waktu button:hover {
+  background: #d4af37;
+  color: black;
+}
+
+.active {
+  background: #d4af37 !important;
+  color: black !important;
+}
+
+.confirm {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #d4af37, #f5d76e);
+  color: black;
+  font-weight: bold;
+}
+
+.confirm:hover {
+  transform: scale(1.05);
+}
+
+.back {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: #1a1a1a;
+  color: #d4af37;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+.booked {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* SEAT PAGE LAYOUT */
+.bungkusKursi {
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.bungkusKursi h1 {
+  margin-top: 90px;
+  margin-bottom: 20px;
+  color: #d4af37;
+}
+
+.screen {
+  width: 60%;
+  height: 20px;
+  margin: 20px auto;
+  background: linear-gradient(to right, #d4af37, #f5d76e);
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(212,175,55,0.5);
+}
+
+#isikursi {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-top: 60px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+#isikursi button {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  background: #2a2a2a;
+  color: #aaa;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+#isikursi button:hover {
+  background: #d4af37;
+  color: black;
+  transform: scale(1.1);
+}
+
+.selected {
+  background: #d4af37 !important;
+  color: black !important;
+  box-shadow: 0 0 10px rgba(212,175,55,0.6);
+}
+
+.booked {
+  background: linear-gradient(45deg, #d4af37, #f5d76e);
+  color: black;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.booked:hover {
+  transform: scale(1.05);
+}
+
+.summary-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  border-radius: 20px;
+  padding: 45px;
+  position: relative;
+  color: white;
+
+  border: 1px solid rgba(212,175,55,0.3);
+  box-shadow: 0 0 30px rgba(212,175,55,0.15);
+
+  overflow: hidden;
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+
+  transition: 0.3s;
+}
+
+.card img {
+  width: 70%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #d4af37;
+}
+
+.card h2 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 6px 0;
+  color: #ccc;
+}
+
+#total {
+  margin-top: 15px;
+  color: #f5d76e;
+  font-size: 20px;
+}
+
+.confirm {
+  padding: 12px 25px;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #d4af37, #f5d76e);
+  color: black;
+  font-weight: bold;
+}
+
+.confirm:hover {
+  transform: scale(1.05);
+}
+
+#historyList {
+  width: 85%;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, #d4af37, #f5d76e);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(212,175,55,0.25);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border: 2px solid #d4af37;
+}
+
+.card h3 {
+  color: #d4af37;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.card p {
+  font-size: 13px;
+  color: #ccc;
+  margin: 4px 0;
+}
+
+.card button {
+  margin-top: 10px;
+  margin-right: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.card button:first-of-type {
+  background: #ff4d4d;
+  color: white;
+}
+
+.card button:first-of-type:hover {
+  background: #ff1a1a;
+  transform: scale(1.05);
+}
+
+.card button:last-of-type {
+  background: linear-gradient(45deg, #d4af37, #f5d76e);
+  color: black;
+}
+
+.card button:last-of-type:hover {
+  transform: scale(1.05);
+}
+
+#historyList p {
+  text-align: center;
+  color: #aaa;
+  grid-column: 1 / -1;
+}
+
+
+.hapusSemua {
+  margin-left: 200px;
+}
+button {
+  margin: 20px 10px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.history-judul {
+  background-color: #d4af37;
+  display: flex;
+  width: 100%;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+}
+
+button[onclick="clearHistory()"] {
+  background: #222;
+  color: #ff4d4d;
+  border: 1px solid #ff4d4d;
+}
+
+button[onclick="backHome()"] {
+  background: #222;
+  color: #d4af37;
+  border: 1px solid #d4af37;
+}
+
+
+button:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
   .film-container {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-
-/* Film.html */
-
-.pembungkus, aside, .deskripsi {
-    display: flex;
-}
-.pembungkus {
-    width: 80%;
-    gap: 30px;
-}
- button {
-  height: 40px;
-}
-.deskripsi {
-    gap: 20px;
+  .pembungkus {
+    flex-direction: column;
     align-items: center;
-}
-aside {
-    gap: 10px;
-}
-aside, .deskripsi {
-    flex-direction: column; 
-}
-#rate, #harga {
-    padding: 17px;
-    text-align: center;
-}
-#rate {
-    color: rgb(236, 197, 1);
-}
-#judul { 
-    font-size: 15px;
-    padding: 30px;
-}
-#hari, #waktu {
-    overflow: hidden;
-    width: 100%;
-}
-#hari h3, #waktu h3 {
-    background: yellow;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-    padding: 15px;
-}
-#hari button, #waktu button {
-    margin: 20px;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-}
-button.active {
-  background: rgb(236, 197, 1);
-  color: black;
-}
-#hari, #waktu, #judul, #rate, #harga, aside img {
-    background-color: #232224;
-    border-radius: 10px;
-}
-.confirm {
-  margin-top: 30px;
-  height: 50px;
-  border: none;
-  border-radius: 50px;
-  font-weight: bold;
-  width: 500px;
-  background: yellow;
-  color: white;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-}
-
-/* seat.html */
-#isikursi button{
-  background-color: red;
-  border: none;
-  color: white;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-  width: 80px;
-  height: 80px;
-  font-weight: bold;
-  border-radius: 12px;
-}
-.nav-btn {
-  width: 60%;
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: space-between;
-}
-.kembali {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  color: white;
-  border: none;
-  background-color: yellow;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-}
-.booked {
-  width: 200px;
-  height: 50px;
-  border-radius: 50px;
-  color: white;
-  border: none;
-  background-color: yellow;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
-}
-.bungkusKursi {
-  width: 70%;
-  height: 70%;
-}
-.bungkusKursi h1 {
-  margin-left: 100px;
-}
-#isikursi {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  
-}
-.row {
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
+  }
 }
